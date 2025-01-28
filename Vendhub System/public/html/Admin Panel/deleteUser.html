@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="../../assets/fav-icon.png" />
+    <title>Delete User</title>
+    <!-- Raleway Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="../../css/adminDashboard.css" />
+    <link rel="stylesheet" href="../../css/chatbot.css" />
+    <link rel="stylesheet" href="../../css/error.css" />
+    <link rel="stylesheet" href="../../css/Admin Panel/deleteUser.css" />
+
+    <!-- Google Fonts Link For Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+</head>
+
+<body>
+    <h1>Delete User</h1>
+    <form id="delete-user-form">
+        <!-- User Selection -->
+        <label for="user-select" class="form-label">Select User *</label>
+        <select name="user_id" id="user-select" class="form-input" required>
+            <option value="">Select User</option>
+            <!-- Users will be populated here -->
+        </select>
+      
+        <!-- User Information (readonly, not editable) -->
+        <input type="text" id="username" placeholder="Username" class="form-input" required disabled />
+        <input type="email" id="email" placeholder="Email" class="form-input" required disabled />
+      
+        <!-- Delete Button -->
+        <button type="submit" class="button">Delete User</button>
+    </form>
+    
+    <nav class="sidebar close">
+        <header>
+          <div class="image-text">
+            <span class="image">
+              <img src="../assets/fav-icon.png" alt="fav-icon" />
+            </span>
+            <div class="text logo-text">
+              <span class="name">Vendhub</span>
+              <span class="profession">System</span>
+            </div>
+          </div>
+          <i class="bx bx-chevron-right toggle"></i>
+        </header>
+        <div class="menu-bar">
+          <div class="menu">
+            <li class="search-box">
+              <i class="bx bx-search icon"></i>
+              <input type="text" placeholder="Search..." />
+            </li>
+            <ul class="menu-links">
+              <!-- Dashboard -->
+              <li class="nav-link">
+                <a href="#">
+                  <i class="bx bx-home-alt icon"></i>
+                  <span class="text nav-text">Dashboard</span>
+                </a>
+              </li>
+    
+              <!-- User Management -->
+              <li class="nav-link">
+                <a href="#">
+                  <i class="bx bx-user icon"></i>
+                  <span class="text nav-text">User Management</span>
+                </a>
+                <ul class="submenu">
+                  <li><a href="/createUser">Create User</a></li>
+                  <li><a href="/getUser">View Users</a></li>
+                  <li><a href="/updateUser">Update User</a></li>
+                  <li><a href="/deleteUser">Delete User</a></li>
+                </ul>
+              </li>
+    
+              <!-- Vendor Management -->
+              <li class="nav-link">
+                <a href="#">
+                  <i class="bx bx-building-house icon"></i>
+                  <span class="text nav-text">Vendor Management</span>
+                </a>
+                <ul class="submenu">
+                  <li><a href="/getVendor">View Vendors</a></li>
+                  <li><a href="/createVendor">Create Vendor</a></li>
+                  <li><a href="/updateVendor">Update Vendor</a></li>
+                  <li><a href="/deleteVendor">Delete Vendor</a></li>
+                  <li><a href="/checkCompliance">Certification Check</a></li>
+                </ul>
+              </li>
+    
+              <!-- Procurement Management -->
+              <li class="nav-link">
+                <a href="#">
+                  <i class="bx bx-cart icon"></i>
+                  <span class="text nav-text">Purchase Order Management</span>
+                </a>
+                <ul class="submenu">
+                  <li><a href="/createPurchaseOrder">Create Purchase Order</a></li>
+                  <li><a href="/getPurchaseOrder">Track Purchase Orders</a></li>
+                  <li><a href="/checkDepartmentBudget">Budget Validation</a></li>
+                </ul>
+              </li>
+    
+              <!-- Contract Management -->
+              <li class="nav-link">
+                <a href="#">
+                  <i class="bx bx-file icon"></i>
+                  <span class="text nav-text">Contract Management</span>
+                </a>
+                <ul class="submenu">
+                  <li><a href="/createContract">Create Contracts</a></li>
+                  <li><a href="/getContract">View Contracts</a></li>
+                  <li><a href="/updateContract">Renew Contracts</a></li>
+                  <li><a href="/checkContractExpiry">Set Expiration Alerts</a></li>
+                </ul>
+              </li>
+    
+              <!-- Budget Management -->
+              <li class="nav-link">
+                <a href="#">
+                  <i class="bx bx-wallet icon"></i>
+                  <span class="text nav-text">Budget Management</span>
+                </a>
+                <ul class="submenu">
+                  <li><a href="/createBudget">Create Budget</a></li>
+                  <li><a href="/getBudget">View Budget Overview</a></li>
+                  <li><a href="/updateBudget">Adjust Budgets</a></li>
+                </ul>
+              </li>
+    
+              <!-- Performance Evaluation -->
+              <li class="nav-link">
+                <a href="#">
+                  <i class="bx bx-star icon"></i>
+                  <span class="text nav-text">Performance Evaluation</span>
+                </a>
+                <ul class="submenu">
+                  <li><a href="/giveRating">Create Evaluation</a></li>
+                  <li><a href="/getRating">Update Evaluation</a></li>
+                </ul>
+              </li>
+    
+              <!-- User Panels (Dashboards) -->
+              <li class="nav-link">
+                <a href="#">
+                  <i class="bx bx-user-circle icon"></i>
+                  <span class="text nav-text">Vendhub Dashboards</span>
+                </a>
+                <ul class="submenu">
+                  <!-- Vendor Panel -->
+                  <li><a href="/vendorDashboard">Vendor Dashboard</a></li>
+                  <!-- Procurement Manager Panel -->
+                  <li><a href="/procurementManagerDashboard">Procurement Manager Dashboard</a></li>
+                  <!-- Contract Manager Panel -->
+                  <li><a href="/contractManagementTeamDashboard">Contract Management Team Dashboard</a></li>
+                  <!-- Budget Manager Panel -->
+                  <li><a href="/vendorManagementTeamDashboard">Vendor Management Team Dashboard</a></li>
+                  <!-- Department Head Panel -->
+                  <li><a href="/procurementTeamDashboard">Procurement Team Dashboard</a></li>
+                  <!-- Compliance Officer Panel -->
+                  <li><a href="/departmentHeadsDashboard">Department Heads Dashboard</a></li>
+                  <li><a href="/budgetManagerDashboard">Budget Manager Dashboard</a></li>
+                  <li><a href="/financeTeamDashboard">Finance Team Dashboard</a></li>
+                </ul>
+              </li>
+    
+              <!-- Frequently Asked Questions -->
+              <li class="nav-link">
+                <a href="/faqs" id="faqs-link">
+                  <i class="bx bx-question-mark icon"></i>
+                  <span class="text nav-text">Frequently Asked Questions</span>
+                </a>
+              </li>
+    
+              <!-- Contact Us -->
+              <li class="nav-link">
+                <a href="/contactUs">
+                  <i class="bx bx-phone icon"></i>
+                  <span class="text nav-text">Contact Us</span>
+                </a>
+              </li>
+    
+              <!-- Logout -->
+              <li class="nav-link">
+                <a href="/registration">
+                  <i class="bx bx-log-out icon"></i>
+                  <span class="text nav-text">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <section class="home"></section>
+    
+
+
+    <!-- Error Message -->
+    <div id="error-message" class="error-container">
+        <span id="error-text"></span>
+        <span class="close-btn" onclick="closeError()">×</span>
+      </div>
+  
+    <!-- Chatbot Table -->
+    <div class="show-chatbot">
+        <button class="chatbot-toggler">
+            <span class="material-symbols-rounded">mode_comment</span>
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <div class="chatbot">
+            <header>
+                <h2>Vendhub Chatbot</h2>
+                <span class="close-btn material-symbols-outlined">close</span>
+            </header>
+            <ul class="chatbox">
+                <li class="chat incoming">
+                    <span class="material-symbols-outlined">smart_toy</span>
+                    <p>Hi there!<br />How can I help you today?</p>
+                </li>
+            </ul>
+            <div class="chat-input">
+                <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+                <span id="send-btn" class="material-symbols-rounded">send</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    const body = document.querySelector("body"),
+        sidebar = body.querySelector("nav"),
+        toggle = body.querySelector(".toggle"),
+        searchBtn = body.querySelector(".search-box");
+
+    toggle.addEventListener("click", () => {
+        sidebar.classList.toggle("close");
+    });
+
+    searchBtn.addEventListener("click", () => {
+        sidebar.classList.remove("close");
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../../js/adminDashboard.js"></script>
+<script src="../../js/chatbot.js"></script>
+<script src="../../js/deleteUser.js"></script>
+<script src="../../js/error.js"></script>
+</body>
+
+</html>
